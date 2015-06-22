@@ -1,0 +1,13 @@
+VirtualBox web service 4.3.28 r100309 win.amd64 (May 13 2015 16:10:12) release log
+00:00:00.002000 main     Log opened 2015-06-20T22:01:11.937836400Z
+00:00:00.002000 main     Build Type: release
+00:00:00.002000 main     OS Product: Windows 8.1
+00:00:00.002000 main     OS Release: 6.3.9600
+00:00:00.002000 main     OS Service Pack: 
+00:00:00.013000 main     DMI Product Name: System Product Name
+00:00:00.019001 main     DMI Product Version: System Version
+00:00:00.019001 main     Host RAM: 8191MB total, 4695MB available
+00:00:00.019001 main     Executable: C:\Program Files\Oracle\VirtualBox\VBoxWebSrv.exe
+00:00:00.019001 main     Process ID: 8052
+00:00:00.019001 main     Package type: WINDOWS_64BITS_GENERIC
+00:00:00.141008 SQPmp    Socket connection successful: host = default (localhost), port = 18083, master socket = 688

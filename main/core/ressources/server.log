@@ -1,0 +1,28 @@
+VirtualBox COM Server 4.3.28 r100309 win.amd64 (May 13 2015 16:10:12) release log
+00:00:00.057301 main     Log opened 2015-06-20T11:57:36.622065800Z
+00:00:00.057301 main     Build Type: release
+00:00:00.057301 main     OS Product: Windows 8.1
+00:00:00.057301 main     OS Release: 6.3.9600
+00:00:00.057301 main     OS Service Pack: 
+00:00:00.088529 main     DMI Product Name: System Product Name
+00:00:00.088529 main     DMI Product Version: System Version
+00:00:00.088529 main     Host RAM: 8191MB total, 5553MB available
+00:00:00.088529 main     Executable: C:\Program Files\Oracle\VirtualBox\VBoxSVC.exe
+00:00:00.088529 main     Process ID: 7196
+00:00:00.088529 main     Package type: WINDOWS_64BITS_GENERIC
+00:00:00.088529          Home directory: 'C:\Users\Noteirak/.VirtualBox'
+00:00:00.088529          Loading settings file "C:\Users\Noteirak/.VirtualBox\VirtualBox.xml" with version "1.12-windows"
+00:00:00.151016          HostDnsMonitor: old information
+00:00:00.151016            no server entries
+00:00:00.151016            no search string entries
+00:00:00.151016            no domain set
+00:00:00.151016          HostDnsMonitor: new information
+00:00:00.151016            server 1: 10.40.0.254
+00:00:00.151016            no search string entries
+00:00:00.151016            domain: home.kamax.io
+00:00:00.151016          HostDnsMonitorProxy::notify
+00:00:00.216762          VDInit finished
+00:00:00.219251          Loading settings file "C:\ProgramData\WebLife\weblife\weblife.vbox" with version "1.14-windows"
+00:00:05.228996 main     ERROR [COM]: aRC=VBOX_E_OBJECT_IN_USE (0x80bb000c) aIID={05f2bbb6-a3a6-4fb9-9b49-6d0dda7142ac} aComponent={Medium} aText={Medium 'C:\ProgramData\WebLife\weblife\Snapshots/{417d375c-ecae-4cdc-a0ae-5513bea1c3c0}.vmdk' cannot be closed because it is still attached to 1 virtual machines}, preserve=false
+00:00:05.228996 main     ERROR [COM]: aRC=VBOX_E_OBJECT_IN_USE (0x80bb000c) aIID={05f2bbb6-a3a6-4fb9-9b49-6d0dda7142ac} aComponent={Medium} aText={Medium 'C:\ProgramData\WebLife\weblife\weblife-disk1_1.vmdk' cannot be closed because it is still attached to 1 virtual machines}, preserve=false
+00:00:05.236996 Watcher  ERROR [COM]: aRC=E_ACCESSDENIED (0x80070005) aIID={fafa4e17-1ee2-4905-a10e-fe7c18bf5554} aComponent={VirtualBox} aText={The object is not ready}, preserve=false
