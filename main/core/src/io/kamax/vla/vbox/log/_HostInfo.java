@@ -20,7 +20,7 @@
  * 
  */
 
-package io.kamax.vla.vbox.report;
+package io.kamax.vla.vbox.log;
 
 public interface _HostInfo {
 

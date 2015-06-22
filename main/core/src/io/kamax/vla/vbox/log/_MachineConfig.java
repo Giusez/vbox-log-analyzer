@@ -20,16 +20,14 @@
  * 
  */
 
-package io.kamax.vla.log;
+package io.kamax.vla.vbox.log;
 
-import java.util.List;
+import java.util.UUID;
 
-public class LogIdentifier implements _LogIdentifier {
+public interface _MachineConfig {
 
-   @Override
-   public String identify(List<String> lines) {
-      // TODO Auto-generated method stub
-      return null;
-   }
+   public UUID getId();
+
+   public String getName();
 
 }

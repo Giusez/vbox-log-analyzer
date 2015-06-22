@@ -20,14 +20,12 @@
  * 
  */
 
-package io.kamax.vla.vbox.report;
+package io.kamax.vla.vbox.log;
 
-import java.util.UUID;
+public interface _MachineInfo {
 
-public interface _MachineConfig {
+   public _MachineConfig getConfig();
 
-   public UUID getId();
-
-   public String getName();
+   public _MachineSessionInfo getSession();
 
 }

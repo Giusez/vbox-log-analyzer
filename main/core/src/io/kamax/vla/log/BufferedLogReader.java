@@ -22,51 +22,46 @@
 
 package io.kamax.vla.log;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Log implements _Log {
+public class BufferedLogReader implements _LogReader {
 
-   private URL source;
-   private long startTimestamp;
-   private List<_LogLine> lines = new ArrayList<_LogLine>();
+   private URL location;
+   private boolean finished = false;
+   private BufferedReader bf;
+   private List<String> lines = new ArrayList<String>();
 
-   public Log(URL source) {
-      this.source = source;
+   @Override
+   public void setLocation(URL location) {
+      this.location = location;
    }
 
    @Override
-   public URL getSource() {
-      return source;
-   }
+   public List<String> get() throws IOException {
+      if (finished) {
+         return lines;
+      }
 
-   @Override
-   public _LogLine getLine(int lineNumber) {
-      return lines.get(lineNumber + 1);
-   }
+      bf = new LineNumberReader(new InputStreamReader(location.openStream()));
+      try {
 
-   @Override
-   public int getLineCount() {
-      return lines.size();
-   }
 
-   @Override
-   public List<_LogLine> getLines() {
-      return lines;
-   }
+         String line;
+         while ((line = bf.readLine()) != null) {
+            lines.add(line);
+         }
 
-   public void addLine(_LogLine line) {
-      lines.add(line);
-   }
-
-   @Override
-   public long getStartTimestamp() {
-      return startTimestamp;
-   }
-
-   public void setStartTimestamp(long startTimestamp) {
-      this.startTimestamp = startTimestamp;
+         return lines;
+      } finally {
+         finished = true;
+         bf.close();
+      }
    }
 
 }

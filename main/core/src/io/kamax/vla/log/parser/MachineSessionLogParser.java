@@ -22,20 +22,20 @@
 
 package io.kamax.vla.log.parser;
 
-import io.kamax.vla.log._Log;
+import io.kamax.vla.log._LogParser;
+import io.kamax.vla.log._LogReader;
 import io.kamax.vla.vbox.log.MachineSessionLog;
+import java.io.IOException;
 
-public class MachineSessionLogParser {
+public class MachineSessionLogParser implements _LogParser {
 
-   private static void checkHeader(_Log rawLog) {
-      if (!rawLog.getLine(1).getText().startsWith("VirtualBox VM")) {
-         throw new IllegalArgumentException("Invalid log type");
+   @Override
+   public MachineSessionLog parse(_LogReader reader) throws IOException {
+      for (String line : reader.get()) {
+         if ((line != null) && line.isEmpty()) {
+
+         }
       }
-   }
-
-   public static MachineSessionLog parse(_Log rawLog) {
-      checkHeader(rawLog);
-
       return null;
    }
 

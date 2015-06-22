@@ -22,16 +22,29 @@
 
 package io.kamax.vla.log;
 
+/**
+ * Represent a specific part of a log line
+ */
 public interface _LogLineExtract {
 
+   /**
+    * The line from which this snippet is taken
+    * 
+    * @return String
+    */
    public _LogLine getLine();
 
+   /**
+    * Get the start position of the extract, first character is at position 0
+    * 
+    * @return int position
+    */
    public int getStart();
 
    /**
-    * Inclusive
+    * Get the end position which is inclusive of the extract
     * 
-    * @return int
+    * @return int position
     */
    public int getEnd();
 

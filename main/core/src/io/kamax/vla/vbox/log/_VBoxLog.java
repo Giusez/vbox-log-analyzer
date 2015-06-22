@@ -20,18 +20,13 @@
  * 
  */
 
-package io.kamax.vla.vbox.report;
+package io.kamax.vla.vbox.log;
 
-import io.kamax.vla.log.data._Data;
+import io.kamax.vla.log._Log;
 
-public interface _VBoxInfo {
 
-   public _Data getVersion();
+public interface _VBoxLog extends _Log {
 
-   public _Data getRevision();
-
-   public _Data getNormalizedVersion();
-
-   public _Data getBuildType();
+   public _VBoxInfo getVBox();
 
 }

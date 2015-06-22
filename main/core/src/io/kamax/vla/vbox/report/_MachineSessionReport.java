@@ -22,12 +22,11 @@
 
 package io.kamax.vla.vbox.report;
 
+import io.kamax.vla.vbox.log._MachineSessionLog;
+
+
 public interface _MachineSessionReport {
 
-   public _HostInfo getHost();
-
-   public _MachineInfo getMachine();
-
-   public _VBoxInfo getVBox();
+   public _MachineSessionLog getLog();
 
 }

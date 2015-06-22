@@ -23,14 +23,11 @@
 package io.kamax.vla.log.data;
 
 import io.kamax.vla.log._Log;
-import io.kamax.vla.log._LogLine;
 import io.kamax.vla.log._LogLineExtract;
 
 public interface _Data {
 
    public _Log getLog();
-
-   public _LogLine getLine();
 
    public _LogLineExtract getPosition();
 

@@ -20,40 +20,18 @@
  * 
  */
 
-package io.kamax.vla.log;
+package io.kamax.vla.vbox.log;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import io.kamax.vla.log.data._Data;
 
-public class LogReader {
+public interface _VBoxInfo {
 
-   private boolean finished = false;
-   private BufferedReader bf;
-   private List<String> lines = new ArrayList<String>();
+   public _Data getVersion();
 
-   public List<String> get(URL logLocation) throws IOException {
-      if (finished) {
-         return lines;
-      }
+   public _Data getRevision();
 
-      bf = new LineNumberReader(new InputStreamReader(logLocation.openStream()));
-      try {
+   public _Data getNormalizedVersion();
 
+   public _Data getBuildType();
 
-         String line;
-         while ((line = bf.readLine()) != null) {
-            lines.add(line);
-         }
-
-         return lines;
-      } finally {
-         finished = true;
-         bf.close();
-      }
-   }
 }

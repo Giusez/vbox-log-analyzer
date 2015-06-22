@@ -22,10 +22,20 @@
 
 package io.kamax.vla.log;
 
-import java.util.List;
+import java.io.IOException;
 
+/**
+ * Parse the log content to make a fully fledged log
+ */
 public interface _LogParser {
 
-   public _Log parse(List<String> lines);
+   /**
+    * Parse the lines and create a log out of it
+    * 
+    * @param reader log reader used to fetch the log content
+    * @return _Log object
+    * @throws IOException if an I/O error occurred while reading the log
+    */
+   public _Log parse(_LogReader reader) throws IOException;
 
 }

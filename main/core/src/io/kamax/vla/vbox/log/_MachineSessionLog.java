@@ -20,29 +20,13 @@
  * 
  */
 
-package io.kamax.vla.log;
+package io.kamax.vla.vbox.log;
 
-import java.util.HashMap;
-import java.util.Map;
 
-public class LogParsers {
+public interface _MachineSessionLog extends _VBoxLog {
 
-   private static Map<String, _LogParser> parsers = new HashMap<String, _LogParser>();
+   public _HostInfo getHost();
 
-   public static void register(String id, _LogParser parser) throws IllegalArgumentException {
-      if (parsers.containsKey(id)) {
-         throw new IllegalArgumentException("A log parser under ID " + id + " is already registered: " + parsers.get(id));
-      }
-
-      parsers.put(id, parser);
-   }
-
-   public static _LogParser get(String id) throws IllegalArgumentException {
-      if (!parsers.containsKey(id)) {
-         throw new IllegalArgumentException("Unknown log parser ID " + id);
-      }
-
-      return parsers.get(id);
-   }
+   public _MachineInfo getMachine();
 
 }

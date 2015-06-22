@@ -23,14 +23,12 @@
 package io.kamax.vla.vbox.log;
 
 import io.kamax.vla.log.Log;
-import io.kamax.vla.log._LogLine;
 import java.net.URL;
-import java.util.List;
 
 public class MachineSessionLog extends Log {
 
-   public MachineSessionLog(URL source, List<_LogLine> lines) {
-      super(source, lines);
+   public MachineSessionLog(URL source) {
+      super(source);
    }
 
 }

@@ -26,35 +26,24 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 
-public class LogBuilder {
+/**
+ * Fetch the content of a possible log at a given location
+ */
+public interface _LogReader {
 
-   private LogReader reader;
-   private URL location;
-   private _LogIdentifier identifier;
+   /**
+    * Set the log location to read from
+    * 
+    * @param location URL of the location
+    */
+   public void setLocation(URL location);
 
-   public LogBuilder setFetcher(LogReader reader) {
-      this.reader = reader;
-      return this;
-   }
-
-   public LogBuilder setLocation(URL location) {
-      this.location = location;
-      return this;
-   }
-
-   public LogBuilder setIdentifier(_LogIdentifier identifier) {
-      this.identifier = identifier;
-      return this;
-   }
-
-   public _Log build() throws IOException {
-      List<String> lines = reader.get(location);
-
-      String parserId = identifier.identify(lines);
-
-      _LogParser parser = LogParsers.get(parserId);
-
-      return parser.parse(lines);
-   }
+   /**
+    * Try to fetch the raw content as a list of lines
+    * 
+    * @return List of String for the lines
+    * @throws IOException If an error occured while reading the log
+    */
+   public List<String> get() throws IOException;
 
 }

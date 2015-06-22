@@ -24,6 +24,8 @@ package io.kamax.vla.log.parser;
 
 import io.kamax.vla.log._Log;
 import io.kamax.vla.log._LogLine;
+import io.kamax.vla.log._LogParser;
+import io.kamax.vla.log._LogReader;
 import io.kamax.vla.vbox.LogType;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,21 +33,11 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class VBoxLogParser {
+public class VBoxLogParser implements _LogParser {
 
-   private static final Pattern defaultTimestampPattern = Pattern.compile("^(\\d{2,}):(\\d{2}?):(\\d{2}?)\\.(\\d{6}?) (.*)");
-   private static final Pattern defaultStartTimePattern = Pattern
+   public static final Pattern defaultTimestampPattern = Pattern.compile("^(\\d{2,}):(\\d{2}?):(\\d{2}?)\\.(\\d{6}?) (.*)");
+   public static final Pattern defaultStartTimePattern = Pattern
          .compile(".*Log opened (\\d{4}?)-(\\d{2}?)-(\\d{2}?)T(\\d{2}?):(\\d{2}?):(\\d{2}?)\\.(\\d{6}?).*");
-
-   public static LogType identify(_Log rawLog) {
-      String header = rawLog.getLine(1).getText();
-
-      if (header.startsWith("VirtualBox VM")) {
-         return LogType.MachineSession;
-      }
-
-      return LogType.Unknown;
-   }
 
    public static long extractTimestamp(_LogLine line, long startTime, long failoverTimestamp) {
       Matcher match = defaultTimestampPattern.matcher(line.getText());
@@ -64,14 +56,6 @@ public class VBoxLogParser {
       return timeStamp;
    }
 
-   public static long extractStartTimestamp(_Log log) throws ParseException {
-      try {
-         return extractStartTimestamp(log.getLine(2).getText());
-      } catch (RuntimeException e) {
-         throw new RuntimeException("Invalid log file, no start timestamp on line 2", e);
-      }
-   }
-
    public static long extractStartTimestamp(String line) throws ParseException {
       Matcher match = defaultStartTimePattern.matcher(line);
       if (!match.matches()) {
@@ -83,4 +67,21 @@ public class VBoxLogParser {
             + match.group(6) + "." + match.group(7));
       return toTime.getTime();
    }
+
+   public LogType identify(_Log rawLog) {
+      String header = rawLog.getLine(1).getText();
+
+      if (header.startsWith("VirtualBox VM")) {
+         return LogType.MachineSession;
+      }
+
+      return LogType.Unknown;
+   }
+
+   @Override
+   public _Log parse(_LogReader reader) {
+      // TODO Auto-generated method stub
+      return null;
+   }
+
 }

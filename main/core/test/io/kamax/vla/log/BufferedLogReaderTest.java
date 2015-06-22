@@ -22,10 +22,34 @@
 
 package io.kamax.vla.log;
 
-import java.util.List;
+import org.junit.Test;
 
-public interface _LogIdentifier {
 
-   public String identify(List<String> lines);
+public class BufferedLogReaderTest {
+
+   @Test
+   public void readLocalVmCompleteLog() {
+
+   }
+
+   @Test
+   public void readLocalVmIncompleteLog() {
+
+   }
+
+   @Test
+   public void readRemoteVmCompleteLog() {
+
+   }
+
+   @Test
+   public void readRemoteVmIncompleteLog() {
+
+   }
+
+   @Test
+   public void readInvalidUrl() {
+
+   }
 
 }
