@@ -69,6 +69,7 @@ public class VBoxLogParserTest {
    public void extractStartTime() throws ParseException {
       String line = "00:00:00.002000 main     Log opened 2015-06-20T22:01:11.937836400Z";
       VBoxLogParser.extractStartTimestamp(line);
+      assertTrue(false);
    }
 
 }

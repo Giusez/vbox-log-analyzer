@@ -22,34 +22,53 @@
 
 package io.kamax.vla.log;
 
+import static org.junit.Assert.assertTrue;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
 import org.junit.Test;
 
 
 public class BufferedLogReaderTest {
 
    @Test
-   public void readLocalVmCompleteLog() {
-
+   public void readLocalVmCompleteLog() throws IOException {
+      BufferedLogReader logReader = new BufferedLogReader();
+      logReader.setLocation(new URL("file:ressources/test/vm-session-complete.log"));
+      List<String> lines = logReader.get();
+      assertTrue(Integer.toString(lines.size()), lines.size() == 1387);
    }
 
    @Test
-   public void readLocalVmIncompleteLog() {
-
+   public void readLocalVmIncompleteLog() throws IOException {
+      BufferedLogReader logReader = new BufferedLogReader();
+      logReader.setLocation(new URL("file:ressources/test/vm-session-incomplete.log"));
+      List<String> lines = logReader.get();
+      assertTrue(Integer.toString(lines.size()), lines.size() == 896);
    }
 
    @Test
-   public void readRemoteVmCompleteLog() {
-
+   public void readRemoteVmCompleteLog() throws IOException {
+      BufferedLogReader logReader = new BufferedLogReader();
+      logReader.setLocation(new URL("https://raw.githubusercontent.com/maxidor/vbox-log-analyzer/master/main/core/ressources/test/vm-session-complete.log"));
+      List<String> lines = logReader.get();
+      assertTrue(Integer.toString(lines.size()), lines.size() == 1387);
    }
 
    @Test
-   public void readRemoteVmIncompleteLog() {
-
+   public void readRemoteVmIncompleteLog() throws IOException {
+      BufferedLogReader logReader = new BufferedLogReader();
+      logReader.setLocation(new URL("https://raw.githubusercontent.com/maxidor/vbox-log-analyzer/master/main/core/ressources/test/vm-session-incomplete.log"));
+      List<String> lines = logReader.get();
+      assertTrue(Integer.toString(lines.size()), lines.size() == 896);
    }
 
-   @Test
-   public void readInvalidUrl() {
-
+   @Test(expected = FileNotFoundException.class)
+   public void readInvalidUrl() throws IOException {
+      BufferedLogReader logReader = new BufferedLogReader();
+      logReader.setLocation(new URL("http://example.com/nothing.log"));
+      logReader.get();
    }
 
 }
